@@ -12,8 +12,11 @@ export const Result = ({ score }) => {
   }, [])
 
   const savePlayer = () => {
-    updatePlayer({ ...player, score: score });
-    PlayerService.savePlayer(player);
+    if (player.name != "") {
+      updatePlayer({ ...player, score: score });
+      PlayerService.savePlayer(player);
+    }
+
   }
 
   return (

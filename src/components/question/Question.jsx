@@ -18,7 +18,6 @@ export const Question = ({ value, currentQuestionIndex, setCurrentQuestionIndex 
 
   const submitAnswer = (e) => {
     e.preventDefault();
-    console.log(player);
     if (selectedOption === value.correct_answer) {
       updatePlayer({ ...player, score: player.score + 1 })
     }

@@ -6,7 +6,6 @@ class QuestionService {
   async getQuestions(amount) {
     try {
       const response = await axios.get(this.baseUrl + amount);
-      console.log(this.baseUrl + amount)
       return response.data.results;
     } catch (error) {
       console.error(error);
