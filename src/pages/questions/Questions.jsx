@@ -4,6 +4,8 @@ import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import QuestionService from "../../services/QuestionService";
+import "./Questions.css";
+import "../../App.css"
 
 
 export const Questions = () => {
@@ -24,6 +26,12 @@ export const Questions = () => {
     }
   }, [currentQuestionIndex]);
 
+  useEffect(() => {
+    if (currentQuestionIndex < questions.length) {
+      console.log('CA', questions[currentQuestionIndex].correct_answer);
+    }
+  }, [currentQuestionIndex, questions]);
+
 
   const getQuestions = async () => {
     setLoading(true);
@@ -36,18 +44,19 @@ export const Questions = () => {
   }
 
   return (
-    <Container maxWidth="sm">
-      {loading && <h1>Loading...</h1>}
-      {!loading &&
-        <div>
-          <Header />
-          {currentQuestionIndex < questions.length &&
-            <div>
-              <p>{questions[currentQuestionIndex].correct_answer}</p>
-              <Question value={questions[currentQuestionIndex]} currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex} />
-            </div>
-          }
-        </div>}
+    <Container className="questions-container">
+      <div className="sub-container">
+        {loading && <h1>Loading...</h1>}
+        {!loading &&
+          <div>
+            <Header />
+            {currentQuestionIndex < questions.length &&
+              <div>
+                <Question value={questions[currentQuestionIndex]} currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex} />
+              </div>
+            }
+          </div>}
+      </div>
     </Container>
   );
 };

@@ -1,0 +1,12 @@
+.result-container {
+  background-image: url('/public/images/backgroud.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.result-container .button {
+  /* padding: 10px; */
+  margin-top: 10px;
+  
+}

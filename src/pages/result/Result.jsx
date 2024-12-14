@@ -1,8 +1,10 @@
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import { HighScore } from "../../components/highScore/HighScore";
 import { useContext, useEffect } from "react";
 import PlayerContext from "../../context/PlayerContext";
 import { PlayerService } from "../../services/PlayerService";
+import "./Result.css";
+import "../../App.css"
 
 export const Result = ({ score }) => {
   const { player, updatePlayer } = useContext(PlayerContext)
@@ -20,8 +22,11 @@ export const Result = ({ score }) => {
   }
 
   return (
-    <Container maxWidth="sm">
-      <HighScore />
+    <Container className="result-container">
+      <div className="sub-container">
+        <HighScore />
+        <Button className="button" variant="contained" color="primary" onClick={() => { window.location.href = "/" }} fullWidth>Continue</Button>
+      </div>
     </Container>
   );
 };

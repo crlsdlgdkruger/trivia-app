@@ -4,6 +4,7 @@ import { TitleH5 } from "../typography/title/TitleH5";
 import { useNavigate } from "react-router-dom";
 import PlayerContext from "../../context/PlayerContext";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import "../generalStyles.css";
 
 export const PlayerSetupForm = () => {
   const [difficulty, setDifficulty] = useState(5);
@@ -27,7 +28,7 @@ export const PlayerSetupForm = () => {
   }
 
   return (
-    <div>
+    <div className="contenedor">
       <TitleH5>Player Setup</TitleH5>
       <form onSubmit={(e) => { submitPlayerSetup(e) }}>
         {/* Campo de nombre */}

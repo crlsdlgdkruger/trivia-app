@@ -2,6 +2,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select } from "@mui/material
 import { TitleH5 } from "../typography/title/TitleH5";
 import { useContext, useEffect, useState } from "react";
 import PlayerContext from "../../context/PlayerContext";
+import "../generalStyles.css";
 
 export const Question = ({ value, currentQuestionIndex, setCurrentQuestionIndex }) => {
 
@@ -36,26 +37,27 @@ export const Question = ({ value, currentQuestionIndex, setCurrentQuestionIndex 
   }
 
   return (
-
-    <form onSubmit={(e) => { submitAnswer(e) }}>
-      <TitleH5>Question: {decodeHtmlEntities(value.question)}</TitleH5>
-      {/* Opciones */}
-      <FormControl fullWidth margin="normal" variant="outlined">
-        <InputLabel id="options-label">Options</InputLabel>
-        <Select
-          labelId="options-label"
-          id="options-select"
-          onChange={handleOptionsChange}
-          label="Options"
-        >
-          {options.map((option, index) => {
-            return (
-              <MenuItem value={option} key={index}>{option}</MenuItem>
-            )
-          })}
-        </Select>
-      </FormControl>
-      <Button type="submit" variant="contained" fullWidth>Submit</Button>
-    </form>
+    <div className="contenedor">
+      <form onSubmit={(e) => { submitAnswer(e) }}>
+        <TitleH5>Question: {decodeHtmlEntities(value.question)}</TitleH5>
+        {/* Opciones */}
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel id="options-label">Options</InputLabel>
+          <Select
+            labelId="options-label"
+            id="options-select"
+            onChange={handleOptionsChange}
+            label="Options"
+          >
+            {options.map((option, index) => {
+              return (
+                <MenuItem value={option} key={index}>{option}</MenuItem>
+              )
+            })}
+          </Select>
+        </FormControl>
+        <Button type="submit" variant="contained" fullWidth>Submit</Button>
+      </form>
+    </div>
   );
 };

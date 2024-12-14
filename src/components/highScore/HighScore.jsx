@@ -1,9 +1,12 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { TitleH5 } from '../typography/title/TitleH5';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import PlayerContext from '../../context/PlayerContext';
+import "../generalStyles.css";
 export const HighScore = () => {
 
   const [highScore, setHightScore] = useState([]);
+  const { player, updatePlayer } = useContext(PlayerContext)
 
   useEffect(() => {
     const localStorageScore = JSON.parse(localStorage.getItem("players"));
@@ -16,10 +19,10 @@ export const HighScore = () => {
       }
     }
 
-  }, [])
+  }, [player])
 
   return (
-    <div>
+    <div className="contenedor">
       <TitleH5>High Score</TitleH5>
       <TableContainer>
         <Table>
