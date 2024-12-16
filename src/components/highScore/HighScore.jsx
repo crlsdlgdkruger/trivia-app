@@ -3,6 +3,7 @@ import { TitleH5 } from '../typography/title/TitleH5';
 import { useContext, useEffect, useState } from 'react';
 import PlayerContext from '../../context/PlayerContext';
 import "../generalStyles.css";
+import "./HighScore.css";
 export const HighScore = () => {
 
   const [highScore, setHightScore] = useState([]);
@@ -22,7 +23,7 @@ export const HighScore = () => {
   }, [player])
 
   return (
-    <div className="contenedor">
+    <div className="contenedor high-score">
       <TitleH5>High Score</TitleH5>
       <TableContainer>
         <Table>
